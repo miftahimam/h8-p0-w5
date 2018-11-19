@@ -1,22 +1,30 @@
 function graduates (students) {
+  
+  var obj = {}
+ for(var i = 0; i < students.length; i++){
+   
+   if(!obj[students[i].class]){
+     obj[students[i].class] = []
+   }
+  
+    if(students[i].score > 75){
+      var objek = {}
+      objek.name = students[i].name
+      objek.score = students[i].score
+      obj[students[i].class].push(objek)
+    }
+
+ }
+//  var objek = {}
+//  for(var l = 0 ; l < arr.length; l++){
+//   objek.name = arr[l][0], objek.score = arr[l][1]
  
-    var tertinggi = []
-    var obj = {}
-    //buat array nilai tertinggi ==> [{class, name, score}]
-    for(var i = 0; i < students.length; i++){
-      for(var j = 0; j < students.length; j++){
-        if(students[i].class === students[j].class && students[i].score > students[j].score){
-          tertinggi.push([students[i].class, students[i].name, students[i].score])
-        }
-        
-      }
-     
-    }
-    //masukin ke dalam objek
-    for(var k = 0; k < tertinggi.length; k++){
-      obj[tertinggi[k][0]] = {name : tertinggi[k][1], score : tertinggi[k][2]}
-    }
-    return obj
+  
+  
+//  }
+ return obj
+ 
+
 }
 
 console.log(graduates([
@@ -51,6 +59,11 @@ console.log(graduates([
 //     { name: 'Anastasia', score: 78 }
 //   ]
 // }
+
+/**
+  { foxes: [],
+    wolves: []}
+ */
 
 // console.log(graduates([
 //   {
