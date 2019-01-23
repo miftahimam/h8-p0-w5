@@ -1,32 +1,23 @@
 function highestScore(students) {
-    var arr = []
-    var banyakSiswa = students.length
-    
-    for (var i = 0; i < banyakSiswa; i++) {
 
-    var objek = {}
-     objek.nama = students[i].name
-     objek.score = students[i].score
-     objek.class = students[i].class
+    var obj = {}
+    for (let i = 0; i < students.length; i++) {
+      if(obj[students[i].class] === undefined){
+          obj[students[i].class] = {}
+          obj[students[i].class]['name'] = ''
+          obj[students[i].class]['score'] = 0
 
-     var obj = {}
-     
-      if(objek.class === 'foxes'){
-          obj.foxes = objek
-      }else{
-          obj.wolves = objek
-      }
-      var hasil = 0
-    
-      for(var j = 0; j < objek.score;j++){
-       if
-      } 
-      console.log(obj);
+        }
+        if(students[i].score > obj[students[i].class]['score']){
+            obj[students[i].class]['name'] = students[i].name
+            obj[students[i].class]['score'] = students[i].score
+        }
     }
-
+   
+    return obj
 }
 
-// TEST CASE
+//TEST CASE
 console.log(highestScore([
     {
         name: 'Dimitri',
@@ -54,35 +45,36 @@ console.log(highestScore([
   //   foxes: { name: 'Dimitri', score: 90 },
   //   wolves: { name: 'Alexei', score: 85 }
   // }
+console.log('');
 
 
-//   console.log(highestScore([
-//     {
-//       name: 'Alexander',
-//       score: 100,
-//       class: 'foxes'
-//     },
-//     {
-//       name: 'Alisa',
-//       score: 76,
-//       class: 'wolves'
-//     },
-//     {
-//       name: 'Vladimir',
-//       score: 92,
-//       class: 'foxes'
-//     },
-//     {
-//       name: 'Albert',
-//       score: 71,
-//       class: 'wolves'
-//     },
-//     {
-//       name: 'Viktor',
-//       score: 80,
-//       class: 'tigers'
-//     }
-//   ]));
+  console.log(highestScore([
+    {
+      name: 'Alexander',
+      score: 100,
+      class: 'foxes'
+    },
+    {
+      name: 'Alisa',
+      score: 76,
+      class: 'wolves'
+    },
+    {
+      name: 'Vladimir',
+      score: 92,
+      class: 'foxes'
+    },
+    {
+      name: 'Albert',
+      score: 71,
+      class: 'wolves'
+    },
+    {
+      name: 'Viktor',
+      score: 80,
+      class: 'tigers'
+    }
+  ]));
 
 //   // {
 //   //   foxes: { name: 'Alexander', score: 100 },
